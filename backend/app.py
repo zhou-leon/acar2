@@ -19,7 +19,7 @@ def add_car():
     if not request.is_json:
         return jsonify({'error': 'Request must be JSON'}), 400
     data = request.get_json()
-    car_name = request.args.get('name')
+    car_name = data.get('name')
     if not car_name:
         return jsonify({'error': 'Missing car name (name)'}), 400
     attrdic = dict(data)

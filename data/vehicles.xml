@@ -3338,4 +3338,42 @@ Honda dw1 3.5 qt </notes>
         <trip-records>
         </trip-records>
     </vehicle>
+    <vehicle id="5">
+        <name>Tesla Model Y</name>
+        <notes />
+        <type />
+        <year>2023</year>
+        <make-id />
+        <make>Tesla</make>
+        <model-id />
+        <model>Y</model>
+        <vehicle-id />
+        <sub-model>Long Range</sub-model>
+        <engine-id />
+        <engine>Dual Motor</engine>
+        <generic-engine-base-id />
+        <generic-fuel-type-id />
+        <transmission-id />
+        <transmission>1 speed</transmission>
+        <drive-type-id />
+        <drive-type>EV</drive-type>
+        <body-type-id />
+        <body-type />
+        <bed-type-id />
+        <bed-type />
+        <license-plate>9EJS552</license-plate>
+        <vin>7SAYGDEE3PF630930</vin>
+        <insurance-policy />
+        <color />
+        <fuel-tank-capacity />
+        <active />
+        <distance-unit />
+        <volume-unit />
+        <country-id />
+        <country-name />
+        <region-id />
+        <region-name />
+        <city-name />
+        <photo />
+    </vehicle>
 </vehicles>

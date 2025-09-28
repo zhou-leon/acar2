@@ -12,7 +12,9 @@ class Vehicles:
         self._enum_cars()
         self.record_count = 0
         for car in self.show():
-            self.record_count += len(self.get_records(car))
+            records = self.get_records(car)
+            if records is not None:
+                self.record_count += len(records)
 
     def _enum_cars(self):
         pass
