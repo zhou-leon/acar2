@@ -39,13 +39,14 @@ class Vehicles:
         ET.indent(self.tree, space="    ")
         self.tree.write(datafile.VEHICLES)
 
-    def addcar(self, name):
+    def addcar(self, name, attrdic):
         v = ET.Element("vehicle")
         v.set("id", str(len(self.root) + 1))
         vname = ET.SubElement(v, "name")
         vname.text = name
         for ele in const.vehicle_attrib:
             sub = ET.SubElement(v, ele)
+            sub.text = attrdic.get(ele, "")
         self.root.append(v)
 
     def get_records(self, name):

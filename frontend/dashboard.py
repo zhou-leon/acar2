@@ -27,10 +27,32 @@ def Dashboard():
     selected_car, set_selected_car = use_state("")
     event_report, set_event_report = use_state("")
     car_info, set_car_info = use_state(None)
-    show_event_form, set_show_event_form = use_state(False)
     today_str = datetime.date.today().isoformat()
+
+    show_event_form, set_show_event_form = use_state(False)
     event_form_data, set_event_form_data = use_state({"date": today_str})
     event_submit_status, set_event_submit_status = use_state("")
+
+    show_newcar_form, set_show_newcar_form = use_state(False)
+    newcar_form_data, set_newcar_form_data = use_state({})
+    newcar_submit_status, set_newcar_submit_status = use_state("")
+
+
+    vehicle_keys = [ 
+        "name", "type", "year", "make-id", "make", "model-id", "model",
+        "vehicle-id", "sub-model", "engine-id", "engine", "generic-engine-base-id", "generic-fuel-type-id",
+        "transmission-id", "transmission", "drive-type-id", "drive-type", "body-type-id", "body-type", "bed-type-id",
+        "bed-type", "license-plate", "vin", "insurance-policy", "color", "fuel-tank-capacity", "active",
+        "distance-unit", "volume-unit", "country-id", "country-name", "region-id", "region-name",
+        "city-name", "photo"
+    ]
+
+    event_keys = [
+        "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
+        "place-name", "place-full-address", "place-street", "place-city", "place-state",
+        "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
+        "place-latitude", "device-longitude", "device-latitude", "subtypes"
+    ]
 
     subtype_keys = [
         "A/C System", "Accident", "Air Filter", "Alternator", "Battery", "Belts", "Body/Chassis",
@@ -47,6 +69,28 @@ def Dashboard():
         "Windshield Wipers"
     ]
 
+    def handle_newcar_form_change(field, value):
+        set_newcar_form_data({**newcar_form_data, field: value})
+
+    def submit_newcar_form():
+        payload = {**newcar_form_data, "name": newcar_form_data.get("name", "")}
+        # Ensure all fields are present
+        for f in vehicle_keys:
+            if f not in payload:
+                payload[f] = ""
+        try:
+            resp = requests.post(f"{API_BASE}/add-car", json=payload)
+            if resp.status_code == 200:
+                set_newcar_submit_status("Car added successfully!")
+                set_show_newcar_form(False)
+                set_newcar_form_data({})
+                fetch_car_list()
+            else:
+                set_newcar_submit_status(f"Error: {resp.json().get('error', 'Unknown error')}")
+        except Exception as e:
+            set_newcar_submit_status(f"Error: {str(e)}")
+
+
     def handle_event_form_change(field, value):
         if field == "subtypes":
             subtypes = event_form_data.get("subtypes", {})
@@ -58,12 +102,7 @@ def Dashboard():
     def submit_event_form():
         payload = {**event_form_data, "car-name": selected_car}
         # Ensure all fields are present
-        for f in [
-            "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
-            "place-name", "place-full-address", "place-street", "place-city", "place-state",
-            "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
-            "place-latitude", "device-longitude", "device-latitude", "subtypes"
-        ]:
+        for f in event_keys:
             if f not in payload:
                 payload[f] = "" if f != "subtypes" else {k: False for k in subtype_keys}
         try:
@@ -175,23 +214,6 @@ def Dashboard():
                             "letterSpacing": "0.03em",
                             "transition": "background 0.2s, box-shadow 0.2s"
                         },
-                        "on_click": lambda e: set_show_event_form(True)
-                    }, "Add Event"),
-                    html.button({
-                        "style": {
-                            "padding": "1rem 2.2rem",
-                            "background": selected_bg,
-                            "color": dark_fg,
-                            "border": f"1px solid {border_color}",
-                            "borderRadius": "12px",
-                            "fontSize": "1.15rem",
-                            "cursor": "pointer",
-                            "fontFamily": "inherit",
-                            "fontWeight": "700",
-                            "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
-                            "letterSpacing": "0.03em",
-                            "transition": "background 0.2s, box-shadow 0.2s"
-                        },
                         "on_mouse_over": lambda e: e['target'].update({"background": "#2b7a78"}),
                         "on_mouse_out": lambda e: e['target'].update({"background": selected_bg}),
                         "on_click": lambda e: (set_event_report("") or (selected_car and fetch_car_info(selected_car)))
@@ -214,7 +236,41 @@ def Dashboard():
                         "on_mouse_over": lambda e: e['target'].update({"background": "#2b7a78"}),
                         "on_mouse_out": lambda e: e['target'].update({"background": selected_bg}),
                         "on_click": lambda e: (set_car_info(None) or (selected_car and fetch_event_report(selected_car)))
-                    }, "Event Report")
+                    }, "Event Report"),
+                    html.button({
+                        "style": {
+                            "padding": "1rem 2.2rem",
+                            "background": selected_bg,
+                            "color": dark_fg,
+                            "border": f"1px solid {border_color}",
+                            "borderRadius": "12px",
+                            "fontSize": "1.15rem",
+                            "cursor": "pointer",
+                            "fontFamily": "inherit",
+                            "fontWeight": "700",
+                            "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                            "letterSpacing": "0.03em",
+                            "transition": "background 0.2s, box-shadow 0.2s"
+                        },
+                        "on_click": lambda e: set_show_event_form(True)
+                    }, "Add Event"),
+                    html.button({
+                        "style": {
+                            "padding": "1rem 2.2rem",
+                            "background": selected_bg,
+                            "color": dark_fg,
+                            "border": f"1px solid {border_color}",
+                            "borderRadius": "12px",
+                            "fontSize": "1.15rem",
+                            "cursor": "pointer",
+                            "fontFamily": "inherit",
+                            "fontWeight": "700",
+                            "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                            "letterSpacing": "0.03em",
+                            "transition": "background 0.2s, box-shadow 0.2s"
+                        },
+                        "on_click": lambda e: set_show_newcar_form(True)
+                    }, "Add Vehicle")
                 ]),
                 html.h2({"style": {"color": dark_fg, "marginBottom": "2rem", "fontWeight": "600", "fontSize": "2rem", "letterSpacing": "0.02em"}}, "Vehicles"),
                 html.form({"style": {"marginBottom": "2rem"}},
@@ -278,6 +334,111 @@ def Dashboard():
                         "width": "100%",
                         "maxWidth": "900px",
                         "border": f"1.5px solid {selected_bg}",
+                        "display": "none" if not show_newcar_form else "flex",
+                        "flexDirection": "column",
+                        "gap": "1.2rem"
+                    }}, [
+                        html.div({"style": {"display": "flex", "gap": "1rem", "marginBottom": "1.5rem"}}, [
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": selected_bg,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {border_color}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: submit_newcar_form()
+                            }, "Submit"),
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": border_color,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {selected_bg}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.10)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: set_show_newcar_form(False)
+                            }, "Cancel")
+                        ]),
+                        # ...existing code...
+                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Vehicle"),
+                        *[
+                            html.div({"style": {"display": "flex", "flexDirection": "column", "marginBottom": "0.7rem"}}, [
+                                html.label({"style": {"fontWeight": "600", "marginBottom": "0.3rem"}}, f),
+                                html.input({
+                                    "type": "text",
+                                    "on_change": lambda e, field=f: handle_newcar_form_change(field, e['target']['value']),
+                                    "style": {"padding": "0.7rem", "borderRadius": "8px", "border": f"1px solid {selected_bg}", "fontSize": "1rem", "background": glass, "color": dark_fg}
+                                })
+                            ])
+                            for f in vehicle_keys
+                        ],
+                        newcar_submit_status and html.div({"style": {"marginTop": "1rem", "color": selected_bg, "fontWeight": "600"}}, newcar_submit_status),
+                        html.div({"style": {"display": "flex", "gap": "1rem", "marginTop": "1.5rem"}}, [
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": selected_bg,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {border_color}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: submit_newcar_form()
+                            }, "Submit"),
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": border_color,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {selected_bg}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.10)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: set_show_newcar_form(False)
+                            }, "Cancel")
+                        ])
+                    ]),
+                    html.form({"style": {
+                        "background": card_bg,
+                        "color": dark_fg,
+                        "padding": "2rem 2.5rem 2rem 2.5rem",
+                        "borderRadius": "14px",
+                        "marginTop": "1rem",
+                        "boxShadow": card_shadow,
+                        "width": "100%",
+                        "maxWidth": "900px",
+                        "border": f"1.5px solid {selected_bg}",
                         "display": "none" if not show_event_form else "flex",
                         "flexDirection": "column",
                         "gap": "1.2rem"
@@ -322,8 +483,6 @@ def Dashboard():
                         ]),
                         # ...existing code...
                         html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Event"),
-                        # ...existing code...
-                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Event"),
                         *[
                             html.div({"style": {"display": "flex", "flexDirection": "column", "marginBottom": "0.7rem"}}, [
                                 html.label({"style": {"fontWeight": "600", "marginBottom": "0.3rem"}}, f),
@@ -334,12 +493,7 @@ def Dashboard():
                                     "style": {"padding": "0.7rem", "borderRadius": "8px", "border": f"1px solid {selected_bg}", "fontSize": "1rem", "background": glass, "color": dark_fg}
                                 })
                             ])
-                            for f in [
-                                "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
-                                "place-name", "place-full-address", "place-street", "place-city", "place-state",
-                                "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
-                                "place-latitude", "device-longitude", "device-latitude"
-                            ]
+                            for f in event_keys
                         ],
                         html.div({"style": {"marginTop": "1.2rem"}}, [
                             html.label({"style": {"fontWeight": "600", "marginBottom": "0.5rem", "fontSize": "1.1rem"}}, "Subtypes"),

@@ -13,6 +13,24 @@ app = Flask(__name__)
 
 cars = vehicles.Vehicles()
 
+# Endpoint to add a new vehicle
+@app.route('/add-car', methods=['POST'])
+def add_car():
+    if not request.is_json:
+        return jsonify({'error': 'Request must be JSON'}), 400
+    data = request.get_json()
+    car_name = request.args.get('name')
+    if not car_name:
+        return jsonify({'error': 'Missing car name (name)'}), 400
+    attrdic = dict(data)
+    attrdic.pop('name', None)
+    try:
+        cars.addcar(car_name, attrdic)
+        cars.save()
+        return jsonify({'status': 'success'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 # Endpoint to get list of car names
 @app.route('/car-list', methods=['GET'])
 def get_car_list():
