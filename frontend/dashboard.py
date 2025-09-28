@@ -7,6 +7,22 @@ API_BASE = "http://127.0.0.1:5000"
 
 @component
 def Dashboard():
+    import re
+    def extract_tags(report):
+        tags = set()
+        # Find all lines with 'tags:' and extract comma-separated values
+        fields = ["tags:", "notes:"]
+        for line in report.splitlines():
+            for field in fields:
+                m = re.match(fr"{field}\s*(.*)", line, re.IGNORECASE)
+                if m:
+                    tags.update([t.strip() for t in m.group(1).split(",") if t.strip()])
+        return list(tags)
+
+    def amazon_url(tag):
+        return f"https://www.amazon.com/s?k={requests.utils.quote(tag)}"
+
+    # product_tags will be calculated after event_report is defined
     car_list, set_car_list = use_state([])
     selected_car, set_selected_car = use_state("")
     event_report, set_event_report = use_state("")
@@ -101,6 +117,7 @@ def Dashboard():
     card_shadow = "0 4px 24px rgba(0,0,0,0.18)"
     glass = "rgba(255,255,255,0.08)"
 
+    product_tags = extract_tags(event_report) if 'event_report' in locals() and event_report else []
     return html.div({"style": {
         "display": "flex",
         "flexDirection": "column",
@@ -228,7 +245,19 @@ def Dashboard():
                         )
                         for name in car_list
                     ]
-                )
+                ),
+                product_tags and html.div({"style": {"marginTop": "2rem", "marginBottom": "2rem"}}, [
+                    html.h4({"style": {"color": selected_bg, "fontWeight": "600", "marginBottom": "0.7rem"}}, "Related Products (Amazon):"),
+                    html.ul({"style": {"listStyle": "none", "padding": 0, "margin": 0}}, [
+                        html.li({"style": {"marginBottom": "0.5rem"}},
+                            html.a({
+                                "href": amazon_url(tag),
+                                "target": "_blank",
+                                "style": {"color": selected_bg, "textDecoration": "underline", "fontWeight": "500"}
+                            }, tag)
+                        ) for tag in product_tags
+                    ])
+                ])
             ),
             html.div({"style": {
                 "width": "70%",
