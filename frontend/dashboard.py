@@ -11,7 +11,7 @@ def Dashboard():
     selected_car, set_selected_car = use_state("")
     event_report, set_event_report = use_state("")
     car_info, set_car_info = use_state(None)
-    show_event_form, set_show_event_form = use_state(None)
+    show_event_form, set_show_event_form = use_state(False)
     today_str = datetime.date.today().isoformat()
     event_form_data, set_event_form_data = use_state({"date": today_str})
     event_submit_status, set_event_submit_status = use_state("")
@@ -238,7 +238,7 @@ def Dashboard():
                 "flexDirection": "column",
                 "alignItems": "flex-start"
             }},
-                show_event_form and html.div({"style": {"width": "100%", "maxWidth": "900px", "marginTop": "1rem"}},
+                html.div({"style": {"width": "100%", "maxWidth": "900px", "marginTop": "1rem"}},
                     html.form({"style": {
                         "background": card_bg,
                         "color": dark_fg,
@@ -249,7 +249,7 @@ def Dashboard():
                         "width": "100%",
                         "maxWidth": "900px",
                         "border": f"1.5px solid {selected_bg}",
-                        "display": "flex",
+                        "display": "none" if not show_event_form else "flex",
                         "flexDirection": "column",
                         "gap": "1.2rem"
                     }}, [
