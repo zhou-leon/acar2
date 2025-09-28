@@ -11,7 +11,7 @@ def Dashboard():
     selected_car, set_selected_car = use_state("")
     event_report, set_event_report = use_state("")
     car_info, set_car_info = use_state(None)
-    show_event_form, set_show_event_form = use_state("")
+    show_event_form, set_show_event_form = use_state(None)
     today_str = datetime.date.today().isoformat()
     event_form_data, set_event_form_data = use_state({"date": today_str})
     event_submit_status, set_event_submit_status = use_state("")
