@@ -40,7 +40,7 @@ def Dashboard():
             set_event_form_data({**event_form_data, field: value})
 
     def submit_event_form():
-        payload = {**event_form_data}
+        payload = {**event_form_data, "car-name": selected_car}
         # Ensure all fields are present
         for f in [
             "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
@@ -253,40 +253,7 @@ def Dashboard():
                         "flexDirection": "column",
                         "gap": "1.2rem"
                     }}, [
-                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Event"),
-                        *[
-                            html.div({"style": {"display": "flex", "flexDirection": "column", "marginBottom": "0.7rem"}}, [
-                                html.label({"style": {"fontWeight": "600", "marginBottom": "0.3rem"}}, f),
-                                html.input({
-                                    "type": "text" if f != "date" else "date",
-                                    "value": event_form_data.get(f, today_str if f == "date" else ""),
-                                    "on_change": lambda e, field=f: handle_event_form_change(field, e['target']['value']),
-                                    "style": {"padding": "0.7rem", "borderRadius": "8px", "border": f"1px solid {selected_bg}", "fontSize": "1rem", "background": glass, "color": dark_fg}
-                                })
-                            ])
-                            for f in [
-                                "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
-                                "place-name", "place-full-address", "place-street", "place-city", "place-state",
-                                "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
-                                "place-latitude", "device-longitude", "device-latitude"
-                            ]
-                        ],
-                        html.div({"style": {"marginTop": "1.2rem"}}, [
-                            html.label({"style": {"fontWeight": "600", "marginBottom": "0.5rem", "fontSize": "1.1rem"}}, "Subtypes"),
-                            html.div({"style": {"display": "grid", "gridTemplateColumns": "repeat(3, 1fr)", "gap": "0.5rem"}}, [
-                                html.label({"style": {"display": "flex", "alignItems": "center", "gap": "0.4rem"}}, [
-                                    html.input({
-                                        "type": "checkbox",
-                                        "checked": event_form_data.get("subtypes", {}).get(subtype, False),
-                                        "on_change": lambda e, s=subtype: handle_event_form_change("subtypes", (s, e['target']['checked'])),
-                                        "style": {"accentColor": selected_bg}
-                                    }),
-                                    html.span({}, subtype)
-                                ])
-                                for subtype in subtype_keys
-                            ])
-                        ]),
-                        html.div({"style": {"display": "flex", "gap": "1rem", "marginTop": "1.5rem"}}, [
+                        html.div({"style": {"display": "flex", "gap": "1rem", "marginBottom": "1.5rem"}}, [
                             html.button({
                                 "type": "button",
                                 "style": {
@@ -324,7 +291,81 @@ def Dashboard():
                                 "on_click": lambda e: set_show_event_form(False)
                             }, "Cancel")
                         ]),
-                        event_submit_status and html.div({"style": {"marginTop": "1rem", "color": selected_bg, "fontWeight": "600"}}, event_submit_status)
+                        # ...existing code...
+                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Event"),
+                        # ...existing code...
+                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Add Event"),
+                        *[
+                            html.div({"style": {"display": "flex", "flexDirection": "column", "marginBottom": "0.7rem"}}, [
+                                html.label({"style": {"fontWeight": "600", "marginBottom": "0.3rem"}}, f),
+                                html.input({
+                                    "type": "text" if f != "date" else "date",
+                                    "value": event_form_data.get(f, today_str if f == "date" else ""),
+                                    "on_change": lambda e, field=f: handle_event_form_change(field, e['target']['value']),
+                                    "style": {"padding": "0.7rem", "borderRadius": "8px", "border": f"1px solid {selected_bg}", "fontSize": "1rem", "background": glass, "color": dark_fg}
+                                })
+                            ])
+                            for f in [
+                                "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
+                                "place-name", "place-full-address", "place-street", "place-city", "place-state",
+                                "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
+                                "place-latitude", "device-longitude", "device-latitude"
+                            ]
+                        ],
+                        html.div({"style": {"marginTop": "1.2rem"}}, [
+                            html.label({"style": {"fontWeight": "600", "marginBottom": "0.5rem", "fontSize": "1.1rem"}}, "Subtypes"),
+                            html.div({"style": {"display": "grid", "gridTemplateColumns": "repeat(3, 1fr)", "gap": "0.5rem"}}, [
+                                html.label({"style": {"display": "flex", "alignItems": "center", "gap": "0.4rem"}}, [
+                                    html.input({
+                                        "type": "checkbox",
+                                        "checked": event_form_data.get("subtypes", {}).get(subtype, False),
+                                        "on_change": lambda e, s=subtype: handle_event_form_change("subtypes", (s, e['target']['checked'])),
+                                        "style": {"accentColor": selected_bg}
+                                    }),
+                                    html.span({}, subtype)
+                                ])
+                                for subtype in subtype_keys
+                            ])
+                        ]),
+                        event_submit_status and html.div({"style": {"marginTop": "1rem", "color": selected_bg, "fontWeight": "600"}}, event_submit_status),
+                        html.div({"style": {"display": "flex", "gap": "1rem", "marginTop": "1.5rem"}}, [
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": selected_bg,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {border_color}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: submit_event_form()
+                            }, "Submit"),
+                            html.button({
+                                "type": "button",
+                                "style": {
+                                    "padding": "1rem 2.2rem",
+                                    "background": border_color,
+                                    "color": dark_fg,
+                                    "border": f"1px solid {selected_bg}",
+                                    "borderRadius": "12px",
+                                    "fontSize": "1.15rem",
+                                    "cursor": "pointer",
+                                    "fontFamily": "inherit",
+                                    "fontWeight": "700",
+                                    "boxShadow": "0 6px 24px rgba(58,175,169,0.10)",
+                                    "letterSpacing": "0.03em",
+                                    "transition": "background 0.2s, box-shadow 0.2s"
+                                },
+                                "on_click": lambda e: set_show_event_form(False)
+                            }, "Cancel")
+                        ])
                     ])
                 ),
                 event_report and html.div({"style": {"width": "100%", "maxWidth": "900px", "marginTop": "1rem"}}, [

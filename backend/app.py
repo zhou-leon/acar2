@@ -85,9 +85,18 @@ def add_event():
         if k not in subtype_keys or not isinstance(subtypes[k], bool):
             return jsonify({'error': f'Invalid subtype: {k}'}), 400
 
-    # Here you would save the event to your data store (e.g., XML, DB)
-    # For now, just echo back the event
-    return jsonify({'status': 'success', 'event': data}), 200
+    # Save the event using utils.add_record()
+    car_name = data.get('car-name') or data.get('car') or None
+    if not car_name:
+        return jsonify({'error': 'Missing car name (car-name or car)'}), 400
+    event_dic = dict(data)
+    event_dic.pop('car-name', None)
+    event_dic.pop('car', None)
+    try:
+        utils.add_record(car_name, event_dic)
+        return jsonify({'status': 'success'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
