@@ -1,0 +1,886 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+
+<event-subtypes>
+	<event-subtype id="1" type="service">
+		<name>A/C System</name>
+		<notes>Including Water Pump, Fans and Refrigerant</notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="2" type="expense">
+		<name>Accident</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="3" type="service">
+		<name>Air Filter</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="4" type="service">
+		<name>Alternator</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="5" type="service">
+		<name>Battery</name>
+		<notes></notes>
+		<default-time-reminder-interval>36</default-time-reminder-interval>
+		<default-distance-reminder-interval>36000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="6" type="service">
+		<name>Belts</name>
+		<notes>Fan, Ribbed and Timing Belts</notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="7" type="service">
+		<name>Body/Chassis</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="8" type="service">
+		<name>Brake Fluid</name>
+		<notes>Fluid needed for braking system operation</notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="9" type="service">
+		<name>Brakes, Front</name>
+		<notes></notes>
+		<default-time-reminder-interval>15</default-time-reminder-interval>
+		<default-distance-reminder-interval>15000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="10" type="service">
+		<name>Brakes, Rear</name>
+		<notes></notes>
+		<default-time-reminder-interval>15</default-time-reminder-interval>
+		<default-distance-reminder-interval>15000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="11" type="service">
+		<name>Cabin Air Filter</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="12" type="expense">
+		<name>Car Wash</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="13" type="service">
+		<name>Clutch Hydraulic Fluid</name>
+		<notes></notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="14" type="service">
+		<name>Clutch Hydraulic System</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="15" type="service">
+		<name>Cooling System</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="16" type="service">
+		<name>Diesel Exhaust Fluid</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="17" type="service">
+		<name>Differential Fluid</name>
+		<notes></notes>
+		<default-time-reminder-interval>30</default-time-reminder-interval>
+		<default-distance-reminder-interval>30000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="18" type="service">
+		<name>Doors</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="19" type="service">
+		<name>Engine Antifreeze</name>
+		<notes>Radiator Coolant Fluid</notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="20" type="service">
+		<name>Engine Oil</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="21" type="service">
+		<name>Exhaust System</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="22" type="expense">
+		<name>Fine</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="23" type="service">
+		<name>Fuel Filter</name>
+		<notes></notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="24" type="service">
+		<name>Fuel Lines &amp; Pipes</name>
+		<notes></notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="25" type="service">
+		<name>Fuel Pump</name>
+		<notes></notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="26" type="service">
+		<name>Fuel System</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="27" type="service">
+		<name>Glass/Mirrors</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="28" type="service">
+		<name>Heating System</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="29" type="service">
+		<name>Horns</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="30" type="service">
+		<name>Induction</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="31" type="service">
+		<name>Inspection</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="32" type="expense">
+		<name>Insurance</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="33" type="service">
+		<name>Lights</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="34" type="service">
+		<name>Lubricate Chain</name>
+		<notes></notes>
+		<default-time-reminder-interval>1</default-time-reminder-interval>
+		<default-distance-reminder-interval>1000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="35" type="expense">
+		<name>MOT</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="36" type="service">
+		<name>New Tires</name>
+		<notes></notes>
+		<default-time-reminder-interval>24</default-time-reminder-interval>
+		<default-distance-reminder-interval>24000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="37" type="service">
+		<name>Oil Filter</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="38" type="expense">
+		<name>Parking</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="39" type="expense">
+		<name>Payment</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="40" type="service">
+		<name>Power Steering Fluid</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="41" type="service">
+		<name>Radiator</name>
+		<notes></notes>
+		<default-time-reminder-interval>10</default-time-reminder-interval>
+		<default-distance-reminder-interval>10000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="42" type="expense">
+		<name>Registration</name>
+		<notes>License Plate Fee</notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="43" type="service">
+		<name>Rust Module</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="44" type="service">
+		<name>Safety Devices</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="45" type="service">
+		<name>Spark Plugs</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="46" type="service">
+		<name>Steering System</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="47" type="service">
+		<name>Suspension System</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="48" type="expense">
+		<name>Tax</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="49" type="service">
+		<name>Timing Belt</name>
+		<notes></notes>
+		<default-time-reminder-interval>75</default-time-reminder-interval>
+		<default-distance-reminder-interval>75000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="50" type="service">
+		<name>Tire A</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="51" type="service">
+		<name>Tire B</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="52" type="service">
+		<name>Tire C</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="53" type="service">
+		<name>Tire D</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="54" type="service">
+		<name>Tire Pressure</name>
+		<notes>Controlling and balancing the tire pressure</notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="55" type="service">
+		<name>Tire Rotation</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="56" type="service">
+		<name>Tires</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="57" type="expense">
+		<name>Toll</name>
+		<notes></notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="58" type="expense">
+		<name>Tow</name>
+		<notes>Getting Towed</notes>
+		<default-time-reminder-interval></default-time-reminder-interval>
+		<default-distance-reminder-interval></default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="59" type="service">
+		<name>Transmission Fluid</name>
+		<notes>Automatic Transmission Fluid</notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="60" type="service">
+		<name>Water Pump</name>
+		<notes></notes>
+		<default-time-reminder-interval>75</default-time-reminder-interval>
+		<default-distance-reminder-interval>75000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="61" type="service">
+		<name>Wheel Alignment</name>
+		<notes></notes>
+		<default-time-reminder-interval>12</default-time-reminder-interval>
+		<default-distance-reminder-interval>12000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="62" type="service">
+		<name>Windshield Washer Fluid</name>
+		<notes></notes>
+		<default-time-reminder-interval>3</default-time-reminder-interval>
+		<default-distance-reminder-interval>3000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+	<event-subtype id="63" type="service">
+		<name>Windshield Wipers</name>
+		<notes></notes>
+		<default-time-reminder-interval>6</default-time-reminder-interval>
+		<default-distance-reminder-interval>6000</default-distance-reminder-interval>
+		<sync-metadata>
+			<remote-id></remote-id>
+			<remote-owner-id></remote-owner-id>
+			<last-modification-date>03/22/2023 - 00:24</last-modification-date>
+			<last-sync-date></last-sync-date>
+			<last-sync-error-message></last-sync-error-message>
+			<active>true</active>
+		</sync-metadata>
+	</event-subtype>
+</event-subtypes>
