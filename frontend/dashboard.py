@@ -9,6 +9,15 @@ def Dashboard():
     car_list, set_car_list = use_state([])
     selected_car, set_selected_car = use_state("")
     event_report, set_event_report = use_state("")
+    car_info, set_car_info = use_state(None)
+    def fetch_car_info(car_name):
+        try:
+            api_url = f"{API_BASE}/car-info?name={requests.utils.quote(car_name)}"
+            resp = requests.get(api_url)
+            data = resp.json()
+            set_car_info(data.get("info", {}))
+        except Exception:
+            set_car_info("")
 
     def fetch_car_list():
         try:
@@ -79,26 +88,46 @@ def Dashboard():
                 "flexDirection": "column",
                 "height": "100%"
             }},
-                html.button({
-                    "style": {
-                        "marginBottom": "2rem",
-                        "padding": "1rem 2.2rem",
-                        "background": selected_bg,
-                        "color": dark_fg,
-                        "border": f"1px solid {border_color}",
-                        "borderRadius": "12px",
-                        "fontSize": "1.15rem",
-                        "cursor": "pointer",
-                        "fontFamily": "inherit",
-                        "fontWeight": "700",
-                        "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
-                        "letterSpacing": "0.03em",
-                        "transition": "background 0.2s, box-shadow 0.2s"
-                    },
-                    "on_mouse_over": lambda e: e['target'].update({"background": "#2b7a78"}),
-                    "on_mouse_out": lambda e: e['target'].update({"background": selected_bg}),
-                    "on_click": lambda e: selected_car and fetch_event_report(selected_car)
-                }, "Event Report"),
+                html.div({"style": {"display": "flex", "flexDirection": "column", "gap": "1rem", "marginBottom": "2rem"}}, [
+                    html.button({
+                        "style": {
+                            "padding": "1rem 2.2rem",
+                            "background": selected_bg,
+                            "color": dark_fg,
+                            "border": f"1px solid {border_color}",
+                            "borderRadius": "12px",
+                            "fontSize": "1.15rem",
+                            "cursor": "pointer",
+                            "fontFamily": "inherit",
+                            "fontWeight": "700",
+                            "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                            "letterSpacing": "0.03em",
+                            "transition": "background 0.2s, box-shadow 0.2s"
+                        },
+                        "on_mouse_over": lambda e: e['target'].update({"background": "#2b7a78"}),
+                        "on_mouse_out": lambda e: e['target'].update({"background": selected_bg}),
+                        "on_click": lambda e: selected_car and fetch_car_info(selected_car)
+                    }, "Information"),
+                    html.button({
+                        "style": {
+                            "padding": "1rem 2.2rem",
+                            "background": selected_bg,
+                            "color": dark_fg,
+                            "border": f"1px solid {border_color}",
+                            "borderRadius": "12px",
+                            "fontSize": "1.15rem",
+                            "cursor": "pointer",
+                            "fontFamily": "inherit",
+                            "fontWeight": "700",
+                            "boxShadow": "0 6px 24px rgba(58,175,169,0.15)",
+                            "letterSpacing": "0.03em",
+                            "transition": "background 0.2s, box-shadow 0.2s"
+                        },
+                        "on_mouse_over": lambda e: e['target'].update({"background": "#2b7a78"}),
+                        "on_mouse_out": lambda e: e['target'].update({"background": selected_bg}),
+                        "on_click": lambda e: selected_car and fetch_event_report(selected_car)
+                    }, "Event Report")
+                ]),
                 html.h2({"style": {"color": dark_fg, "marginBottom": "2rem", "fontWeight": "600", "fontSize": "2rem", "letterSpacing": "0.02em"}}, "Vehicles"),
                 html.form({"style": {"marginBottom": "2rem"}},
                     [
@@ -163,6 +192,31 @@ def Dashboard():
                         for event in event_report.split("========") if event.strip()
                     ]
                 ])
+                ,
+                car_info and html.div({"style": {"width": "100%", "maxWidth": "900px", "marginTop": "1rem"}},
+                    html.div({"style": {
+                        "background": card_bg,
+                        "color": dark_fg,
+                        "padding": "1.5rem 2rem 1.2rem 2rem",
+                        "borderRadius": "12px",
+                        "marginBottom": "1.5rem",
+                        "boxShadow": card_shadow,
+                        "borderLeft": f"6px solid {selected_bg}",
+                        "fontSize": "1.08rem",
+                        "whiteSpace": "normal",
+                        "transition": "box-shadow 0.2s",
+                        "overflow": "hidden"
+                    }}, [
+                        html.h3({"style": {"marginBottom": "1.2rem", "fontWeight": "600", "fontSize": "1.3rem", "color": selected_bg}}, "Car Information"),
+                        html.ul({"style": {"listStyle": "none", "padding": 0, "margin": 0}}, [
+                            html.li({"style": {"marginBottom": "0.8rem", "padding": 0}}, [
+                                html.span({"style": {"fontWeight": "600", "color": selected_bg, "marginRight": "0.7rem"}}, f"{key}:") ,
+                                html.span({"style": {"fontWeight": "400", "color": dark_fg}}, f" {value}")
+                            ])
+                            for key, value in car_info.items() if value not in [None, ""]
+                        ])
+                    ])
+                )
             )
         )
     )
