@@ -147,14 +147,14 @@ def Dashboard():
 
     use_effect(fetch_car_list, [])
 
-    dark_bg = "linear-gradient(135deg, #232526 0%, #414345 100%)"
-    dark_fg = "#f8fafd"
-    accent = "rgba(34, 40, 49, 0.85)"
-    selected_bg = "#3aafa9"
-    border_color = "#222831"
-    card_bg = "rgba(44, 62, 80, 0.7)"
-    card_shadow = "0 4px 24px rgba(0,0,0,0.18)"
-    glass = "rgba(255,255,255,0.08)"
+    dark_bg = "linear-gradient(135deg, #f8fafc 0%, #e0e5ec 100%)"  # soft frosted gradient
+    dark_fg = "#222"  # dark neutral
+    accent = "rgba(255,255,255,0.55)"  # frosted glass accent
+    selected_bg = "#a3bffa"  # soft blue highlight
+    border_color = "#d1d5db"  # light border
+    card_bg = "rgba(255,255,255,0.35)"  # glassy card
+    card_shadow = "0 8px 32px 0 rgba(31, 38, 135, 0.18)"  # subtle blue shadow
+    glass = "rgba(255,255,255,0.28)"  # glass effect
 
     product_tags = extract_tags(event_report) if 'event_report' in locals() and event_report else []
     return html.div({"style": {
