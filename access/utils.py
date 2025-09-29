@@ -4,6 +4,7 @@ import pprint
 
 
 def gen_report(car):
+    """Generate a formatted event report for the given car name."""
     v = vehicles.Vehicles()
     e = events.Events()
     output = e.gen_rpt_txt(v.get_records(car))
@@ -11,11 +12,13 @@ def gen_report(car):
 
 
 def get_info(car):
+    """Return pretty-printed info dictionary for the given car name."""
     v = vehicles.Vehicles()
     info = pprint.pformat(v.get_info(car), indent=4)
     return info
 
 def add_record(car, event_dic):
+    """Add a new event record to the given car using the event dictionary."""
     v = vehicles.Vehicles()
     e = events.Events()
 

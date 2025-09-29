@@ -6,8 +6,10 @@ API_BASE = "http://127.0.0.1:5000"
 
 @component
 def Dashboard():
+    """Main dashboard component for car maintenance tracker UI."""
     import re
     def extract_tags(report):
+        """Extract tags from the event report text for Amazon product links."""
         tags = set()
         # Find all lines with 'tags:' and extract comma-separated values
         fields = ["tags:", "notes:"]
@@ -19,6 +21,7 @@ def Dashboard():
         return list(tags)
 
     def amazon_url(tag):
+        """Generate Amazon search URL for a given tag."""
         return f"https://www.amazon.com/s?k={requests.utils.quote(tag)}"
 
     # product_tags will be calculated after event_report is defined
@@ -69,9 +72,11 @@ def Dashboard():
     ]
 
     def handle_newcar_form_change(field, value):
+        """Update new car form data when a field changes."""
         set_newcar_form_data({**newcar_form_data, field: value})
 
     def submit_newcar_form():
+        """Submit new car form data to backend and update car list."""
         payload = {**newcar_form_data, "name": newcar_form_data.get("name", "")}
         # Ensure all fields are present
         for f in vehicle_keys:
@@ -91,6 +96,7 @@ def Dashboard():
 
 
     def handle_event_form_change(field, value):
+        """Update event form data when a field changes."""
         if field == "subtypes":
             subtypes = event_form_data.get("subtypes", {})
             subtypes[value[0]] = value[1]
@@ -99,6 +105,7 @@ def Dashboard():
             set_event_form_data({**event_form_data, field: value})
 
     def submit_event_form():
+        """Submit event form data to backend and update event report."""
         payload = {**event_form_data, "car-name": selected_car}
         # Ensure all fields are present
         for f in event_keys:
@@ -116,6 +123,7 @@ def Dashboard():
             set_event_submit_status(f"Error: {str(e)}")
 
     def fetch_car_info(car_name):
+        """Fetch car info from backend for the selected car."""
         try:
             api_url = f"{API_BASE}/car-info?name={requests.utils.quote(car_name)}"
             resp = requests.get(api_url)
@@ -125,6 +133,7 @@ def Dashboard():
             set_car_info("")
 
     def fetch_car_list():
+        """Fetch the list of cars from backend and set the selected car."""
         try:
             resp = requests.get(f"{API_BASE}/car-list")
             data = resp.json()
@@ -136,6 +145,7 @@ def Dashboard():
             set_car_list([])
 
     def fetch_event_report(car_name):
+        """Fetch the event report for the selected car from backend."""
         try:
             api_url = f"{API_BASE}/event-report?name={requests.utils.quote(car_name)}"
             resp = requests.get(api_url)
