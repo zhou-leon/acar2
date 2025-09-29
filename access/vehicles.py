@@ -2,7 +2,6 @@ import xml.etree.ElementTree as ET
 import datafile
 import vehicleConst as const
 import events
-import eventConst
 
 
 class Vehicles:

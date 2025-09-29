@@ -1,4 +1,3 @@
-import reactpy
 from reactpy import html, component, run
 
 @component

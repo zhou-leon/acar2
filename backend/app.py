@@ -1,10 +1,6 @@
-from flask import abort
-# Imports
-import os
 from flask import Flask, request, jsonify
-import xml.etree.ElementTree as ET
 import sys
-sys.path.append('../struct')
+sys.path.append('../access')
 import vehicles
 import utils
 import urllib.parse
@@ -71,37 +67,7 @@ def add_event():
         return jsonify({'error': 'Request must be JSON'}), 400
     data = request.get_json()
 
-    required_fields = [
-        "type", "date", "notes", "odometer-reading", "payment-type", "tags", "total-cost",
-        "place-name", "place-full-address", "place-street", "place-city", "place-state",
-        "place-country", "place-postal-code", "place-google-places-id", "place-longitude",
-        "place-latitude", "device-longitude", "device-latitude", "subtypes"
-    ]
-    missing = [f for f in required_fields if f not in data]
-    if missing:
-        return jsonify({'error': f'Missing fields: {missing}'}), 400
-
-    # Validate subtypes
-    subtype_keys = [
-        "A/C System", "Accident", "Air Filter", "Alternator", "Battery", "Belts", "Body/Chassis",
-        "Brake Fluid", "Brakes, Front", "Brakes, Rear", "Cabin Air Filter", "Car Wash",
-        "Clutch Hydraulic Fluid", "Clutch Hydraulic System", "Cooling System", "Diesel Exhaust Fluid",
-        "Differential Fluid", "Doors", "Engine Antifreeze", "Engine Oil", "Exhaust System", "Fine",
-        "Fuel Filter", "Fuel Lines & Pipes", "Fuel Pump", "Fuel System", "Glass/Mirrors",
-        "Heating System", "Horns", "Induction", "Inspection", "Insurance", "Lights",
-        "Lubricate Chain", "MOT", "New Tires", "Oil Filter", "Parking", "Payment",
-        "Power Steering Fluid", "Radiator", "Registration", "Rust Module", "Safety Devices",
-        "Spark Plugs", "Steering System", "Suspension System", "Tax", "Timing Belt", "Tire A",
-        "Tire B", "Tire C", "Tire D", "Tire Pressure", "Tire Rotation", "Tires", "Toll", "Tow",
-        "Transmission Fluid", "Water Pump", "Wheel Alignment", "Windshield Washer Fluid",
-        "Windshield Wipers"
-    ]
-    subtypes = data["subtypes"]
-    if not isinstance(subtypes, dict):
-        return jsonify({'error': 'subtypes must be a dict of booleans'}), 400
-    for k in subtypes:
-        if k not in subtype_keys or not isinstance(subtypes[k], bool):
-            return jsonify({'error': f'Invalid subtype: {k}'}), 400
+    # ...existing code...
 
     # Save the event using utils.add_record()
     car_name = data.get('car-name') or data.get('car') or None

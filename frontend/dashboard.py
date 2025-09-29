@@ -1,4 +1,3 @@
-import reactpy
 from reactpy import html, component, use_state, use_effect, run
 import requests
 import datetime
