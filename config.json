@@ -1,0 +1,14 @@
+{
+  "frontend": {
+    "host": "127.0.0.1",
+    "port": 8000,
+    "debug": true,
+    "theme": "apple-glass"
+  },
+  "backend": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": true,
+    "data_path": "./data/"
+  }
+}

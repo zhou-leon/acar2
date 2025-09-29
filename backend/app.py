@@ -1,9 +1,18 @@
 from flask import Flask, request, jsonify
+
 import sys
+import os
+import json
 sys.path.append('../access')
 import vehicles
 import utils
 import urllib.parse
+
+# Load backend config from config.json
+CONFIG_PATH = os.path.join(os.path.dirname(__file__), '../config.json')
+with open(CONFIG_PATH, 'r') as f:
+    config = json.load(f)
+backend_cfg = config.get('backend', {})
 
 app = Flask(__name__)
 
@@ -83,5 +92,9 @@ def add_event():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    # Start the Flask development server
-    app.run(debug=True)
+    # Start the Flask development server using config.json values
+    app.run(
+        host=backend_cfg.get('host', '127.0.0.1'),
+        port=backend_cfg.get('port', 5000),
+        debug=backend_cfg.get('debug', True)
+    )
