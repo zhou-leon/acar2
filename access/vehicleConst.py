@@ -34,4 +34,5 @@ vehicle_attrib = [
     "region-name",
     "city-name",
     "photo",
+    "event-records",
 ]

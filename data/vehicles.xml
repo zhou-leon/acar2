@@ -3375,5 +3375,58 @@ Honda dw1 3.5 qt </notes>
         <region-name />
         <city-name />
         <photo />
+        <event-records>
+            <event-record id="87">
+                <type>Service</type>
+                <date>2025-02-08</date>
+                <odometer-reading>22000</odometer-reading>
+                <notes />
+                <payment-type />
+                <tags />
+                <total-cost />
+                <place-name />
+                <place-full-address />
+                <place-street />
+                <place-city />
+                <place-state />
+                <place-country />
+                <place-postal-code />
+                <place-google-places-id />
+                <place-longitude />
+                <place-latitude />
+                <device-longitude />
+                <device-latitude />
+                <subtypes>
+                    <subtype id="55" />
+                    <subtype id="11" />
+                    <subtype id="15" />
+                    <subtype id="62" />
+                </subtypes>
+            </event-record>
+            <event-record id="86">
+                <date>2024-07-01</date>
+                <type>Tire Rotation</type>
+                <odometer-reading>12000</odometer-reading>
+                <notes />
+                <payment-type />
+                <tags />
+                <total-cost />
+                <place-name />
+                <place-full-address />
+                <place-street />
+                <place-city />
+                <place-state />
+                <place-country />
+                <place-postal-code />
+                <place-google-places-id />
+                <place-longitude />
+                <place-latitude />
+                <device-longitude />
+                <device-latitude />
+                <subtypes>
+                    <subtype id="55" />
+                </subtypes>
+            </event-record>
+        </event-records>
     </vehicle>
 </vehicles>
