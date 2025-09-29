@@ -1,18 +1,11 @@
 from flask import Flask, request, jsonify
-
-import sys
 import os
 import json
-sys.path.append('../access')
 import vehicles
 import utils
 import urllib.parse
+import backend.config as config
 
-# Load backend config from config.json
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), '../config.json')
-with open(CONFIG_PATH, 'r') as f:
-    config = json.load(f)
-backend_cfg = config.get('backend', {})
 
 app = Flask(__name__)
 
